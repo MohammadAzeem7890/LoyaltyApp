@@ -1,0 +1,1 @@
+const BASE_URL = 'http://115.186.173.210/LoyaltyCustomers/api/Customer/';
