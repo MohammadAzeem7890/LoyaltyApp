@@ -29,7 +29,18 @@ class NewsTempOpen extends StatelessWidget {
                       .replaceAll('</p>', '')
                       .replaceAll('[&hellip;]', '')
                       .replaceAll('&#8211', '')
-                      .replaceAll('&#8217', ''),
+                      .replaceAll('&#8217', '')
+                      .replaceAll('&nbsp;', '')
+                  .replaceAll('</strong>', '')
+                      .replaceAll('<strong>', '')
+                      .replaceAll('<h3>', '')
+                      .replaceAll('</h3>', '')
+                      .replaceAll('<figure>', '')
+                      .replaceAll('</figure>', '')
+                      .replaceAll('<em>', '')
+                      .replaceAll('<em>', '')
+
+                  ,
                   style: TextStyle(color: appTheme.accentColor, fontSize: 22.0),
                 ),
                 SizedBox(

@@ -24,7 +24,6 @@ class NewsTempController extends GetxController{
     }
     var url = '$BASE_URL/GetCustomerDetail?IdentityNo=$identityNoSaved';
     var response;
-
     try {
       response = await http.get(
         url,

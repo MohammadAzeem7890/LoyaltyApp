@@ -20,7 +20,8 @@ class CurrencyExchange extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> _tabWidgets = <Widget>[
       InfoTab(),
-      Obx(() => CurrencyTable(currencyData: currencyController.currencyData.value)),
+      Obx(() =>
+          CurrencyTable(currencyData: currencyController.currencyData.value)),
     ];
 
     return Container(

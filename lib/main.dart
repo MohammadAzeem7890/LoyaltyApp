@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pakistancurrency/Common/Theme.dart';
 import 'package:pakistancurrency/Screens/HomeScreen_Services/TelegraphicDemandDraft.dart';
-
 import 'package:pakistancurrency/Screens/Login_screen.dart';
 import 'package:pakistancurrency/Screens/Home_screen.dart';
-import 'package:pakistancurrency/Screens/News.dart';
 import 'package:pakistancurrency/Screens/Profile_screen.dart';
 import 'package:pakistancurrency/Screens/TransactionHistory.dart';
 import 'package:pakistancurrency/Screens/NewsTemp.dart';
 import 'package:pakistancurrency/Screens/NewsTempOpen.dart';
-//import 'package:pakistancurrency/Screens/HomeScreen_Services/MoneyTransferOLD.dart';
 import 'package:pakistancurrency/Screens/HomeScreen_Services/PartnersDetails/WesternUnion.dart';
 import 'package:pakistancurrency/Screens/HomeScreen_Services/PartnersDetails/Ria.dart';
 import 'package:pakistancurrency/Screens/HomeScreen_Services/PartnersDetails/MoneyGram.dart';
@@ -18,6 +15,8 @@ import 'package:pakistancurrency/Screens/HomeScreen_Services/CurrencyCalculator.
 import 'package:pakistancurrency/Screens/HomeScreen_Services/MoneyTransfer.dart';
 import 'package:pakistancurrency/Screens/PointsScreen.dart';
 import 'package:get/get.dart';
+
+import 'Screens/HomeScreen_Services/PartnersDetails/LoyaltyAndReward.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,6 +44,7 @@ class MyApp extends StatelessWidget {
         '/currencyExchange': (context) => CurrencyExchange(),
         '/currencyCalculator': (context) => CurrencyCalculator(),
         '/pointsScreen': (context) => PointsScreen(),
+        '/loyaltyScreen': (context) => LoyaltyAndReward(),
       },
     );
   }

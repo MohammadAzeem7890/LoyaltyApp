@@ -6,6 +6,8 @@ import 'package:pakistancurrency/Components/Heading.dart';
 import 'package:pakistancurrency/Screens/HomeScreenTabs/LoyaltyTab.dart';
 import 'package:pakistancurrency/Screens/HomeScreen_Services/PartnersDetails/LoyaltyAndReward.dart';
 
+import '../../Screens/HomeScreenTabs/LocatorTab.dart';
+
 class ServicesSection extends StatefulWidget {
   const ServicesSection({Key key, this.onTap}) : super(key: key);
 
@@ -76,7 +78,9 @@ class _ServicesSectionState extends State<ServicesSection> {
               Expanded(
                 child: ButtonRoundedIconWithLabel(
                   onTap: () {
-                    widget.onTap(1);
+                    // widget.onTap(1);
+                    // Get.to(Locator());
+                    Get.to(LocatorTab());
                   },
                   image: 'Branch_Network.png',
                   text: 'Branch Network',
