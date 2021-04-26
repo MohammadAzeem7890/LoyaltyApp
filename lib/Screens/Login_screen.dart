@@ -39,60 +39,60 @@ class _LoginState extends State<Login> {
     }
   }
 
-  void verifyUser() async{
-    var response = await http.get('$BASE_URL/VerifyIdentity?IdentityNo=$identityNo&OneTimePin=$otp',
-      headers: {"AppToken": "D094BBF4-FAC5-4416-AD34-E2B2338D502B"},
-    );
-    if(response.statusCode == 200){
-      print(convert.jsonEncode(response.body));
-    }
-    else{
-      throw Exception('could not load data');
-    }
-  }
-
-  // void verifyUser() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   var url = '$BASE_URL/VerifyIdentity?IdentityNo=$identityNo&OneTimePin=$otp';
-  //   var response;
-  //   try {
-  //     response = await http.get(
-  //       url,
-  //       headers: {"AppToken": "D094BBF4-FAC5-4416-AD34-E2B2338D502B"},
-  //     );
-  //   } catch (e) {
-  //     setState(() {
-  //       isLoading = false;
-  //     });
-  //     final snackBar = SnackBar(content: Text('Network Error'));
-  //     _scaffoldKey.currentState.showSnackBar(snackBar);
+  // void verifyUser() async{
+  //   var response = await http.get('$BASE_URL/VerifyIdentity?IdentityNo=$identityNo&OneTimePin=$otp',
+  //     headers: {"AppToken": "D094BBF4-FAC5-4416-AD34-E2B2338D502B"},
+  //   );
+  //   if(response.statusCode == 200){
+  //     print(convert.jsonEncode(response.body));
   //   }
-  //
-  //   if (response.statusCode == 200) {
-  //     print(convert.jsonDecode(response.body)['IsVerifiedCustomer']);
-  //     // print(response);
-  //     setState(() {
-  //       isLoading = false;
-  //     });
-  //
-  //     if (convert.jsonDecode(response.body)['IsVerifiedCustomer']) {
-  //       print('This is json response');
-  //       await prefs.setString('identityNo', identityNo);
-  //       print(prefs.getString('identityNo'));
-  //       Navigator.pushReplacementNamed(context, '/homeScreen');
-  //     } else {
-  //       final snackBar =
-  //           SnackBar(content: Text('Identity No or OTP incorrect'));
-  //       _scaffoldKey.currentState.showSnackBar(snackBar);
-  //     }
-  //   } else {
-  //     setState(() {
-  //       isLoading = false;
-  //     });
-  //     final snackBar = SnackBar(content: Text('Fatal Error'));
-  //     _scaffoldKey.currentState.showSnackBar(snackBar);
+  //   else{
+  //     throw Exception('could not load data');
   //   }
   // }
+
+  void verifyUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var url = '$BASE_URL/VerifyIdentity?IdentityNo=$identityNo&OneTimePin=$otp';
+    var response;
+    try {
+      response = await http.get(
+        url,
+        headers: {"AppToken": "D094BBF4-FAC5-4416-AD34-E2B2338D502B"},
+      );
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+      });
+      final snackBar = SnackBar(content: Text('Network Error'));
+      _scaffoldKey.currentState.showSnackBar(snackBar);
+    }
+
+    if (response.statusCode == 200) {
+      print(convert.jsonDecode(response.body)['IsVerifiedCustomer']);
+      // print(response);
+      setState(() {
+        isLoading = false;
+      });
+
+      if (convert.jsonDecode(response.body)['IsVerifiedCustomer']) {
+        print('This is json response');
+        await prefs.setString('identityNo', identityNo);
+        print(prefs.getString('identityNo'));
+        Navigator.pushReplacementNamed(context, '/homeScreen');
+      } else {
+        final snackBar =
+            SnackBar(content: Text('Identity No or OTP incorrect'));
+        _scaffoldKey.currentState.showSnackBar(snackBar);
+      }
+    } else {
+      setState(() {
+        isLoading = false;
+      });
+      final snackBar = SnackBar(content: Text('Fatal Error'));
+      _scaffoldKey.currentState.showSnackBar(snackBar);
+    }
+  }
 
 
 
