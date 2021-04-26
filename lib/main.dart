@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pakistan Currency',
       theme: appTheme,
-      initialRoute: '/homeScreen',
+      initialRoute: '/login',
       routes: {
         '/login': (context) => Login(),
         '/homeScreen': (context) => HomeScreen(),
